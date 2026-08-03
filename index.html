@@ -3,133 +3,761 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Karol Bagh Mohali</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>The Karol Bagh Mohali | Car Accessories &amp; Detailing Studio</title>
+<meta name="description" content="Car accessories, detailing, PPF, ceramic coating &amp; wraps in Mohali. Book on WhatsApp or online.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
 <style>
-body {margin:0;font-family:Poppins;background:#0a0a0a;color:#fff;}
-header {display:flex;justify-content:space-between;align-items:center;padding:20px;background:#000;}
-header h1 {color:#ff3c00;}
-nav a {color:#fff;margin:0 15px;text-decoration:none;}
-.hero {
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c') center/cover;
-}
-.hero h2 {font-size:60px;}
-.hero p {font-size:20px;margin-bottom:20px;}
-.btn {
-background:#ff3c00;
-padding:12px 25px;
-border-radius:5px;
-color:#fff;
-text-decoration:none;
-margin:5px;
-}
-section {padding:70px 20px;text-align:center;}
-.services, .pricing, .gallery {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-.card {
-background:#111;
-padding:25px;
-border-radius:12px;
-transition:0.3s;
-}
-.card:hover {transform:scale(1.05);}
-.gallery img {
-width:100%;
-border-radius:10px;
-}
-iframe {width:100%;height:300px;border:0;border-radius:10px;}
-footer {background:#000;padding:20px;}
-.whatsapp {
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-font-size:22px;
-}
+  :root{
+    --bg:#141518;
+    --bg-2:#1b1d22;
+    --surface:#212429;
+    --surface-2:#282b31;
+    --line:#34383f;
+    --text:#f4f5f6;
+    --muted:#9aa0a8;
+    --orange:#ff5a1f;
+    --orange-dim:#c94514;
+    --steel:#c9cdd3;
+    --whatsapp:#25d366;
+    --radius:2px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  input,select,textarea{font-family:inherit;}
+
+  h1,h2,h3,h4,.display{
+    font-family:'Teko',sans-serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    line-height:0.95;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--orange);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:'';width:26px;height:2px;background:var(--orange);}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .section{padding:100px 0;position:relative;}
+  @media(max-width:768px){.section{padding:64px 0;}}
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- diagonal stripe divider (signature element) ---------- */
+  .stripe-divider{
+    height:14px;
+    background:repeating-linear-gradient(-45deg,var(--orange) 0 22px,var(--bg) 22px 44px);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    background:rgba(20,21,24,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1180px;margin:0 auto;
+  }
+  .logo{display:flex;flex-direction:column;line-height:1;}
+  .logo .logo-main{font-family:'Teko',sans-serif;font-size:26px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;}
+  .logo .logo-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.25em;color:var(--orange);text-transform:uppercase;margin-top:2px;}
+  .nav-links{display:flex;gap:32px;align-items:center;}
+  .nav-links a{font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:var(--muted);font-weight:600;transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    background:var(--whatsapp);color:#08210f;font-weight:700;
+    padding:10px 18px;font-size:13px;text-transform:uppercase;letter-spacing:0.04em;
+    border-radius:var(--radius);
+  }
+  .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);width:40px;height:40px;align-items:center;justify-content:center;}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .menu-btn{display:flex;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    background:#0c0d0f;
+  }
+  .hero video, .hero .hero-fallback{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(15%) contrast(1.05);
+  }
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(12,13,15,0.35) 0%, rgba(12,13,15,0.55) 55%, rgba(12,13,15,0.96) 100%);
+  }
+  .hero-content{position:relative;z-index:2;padding:0 24px 90px;max-width:1180px;margin:0 auto;width:100%;}
+  .hero-tag{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--orange);border:1px solid var(--orange-dim);display:inline-block;padding:6px 12px;margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(52px,9vw,124px);
+    color:#fff;
+    margin-bottom:18px;
+  }
+  .hero h1 span{color:var(--orange);}
+  .hero p{max-width:520px;color:var(--steel);font-size:17px;margin-bottom:34px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 26px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
+    border-radius:var(--radius);border:1px solid transparent;transition:transform .15s ease, background .2s;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{background:var(--orange);color:#161616;}
+  .btn-primary:hover{background:#ff7440;}
+  .btn-outline{border-color:var(--line);color:var(--text);}
+  .btn-outline:hover{border-color:var(--steel);}
+  .btn-whatsapp{background:var(--whatsapp);color:#08210f;}
+  .btn-whatsapp:hover{background:#2fe97a;}
+
+  .hero-stats{
+    position:absolute;bottom:0;right:24px;z-index:2;
+    display:flex;gap:34px;padding:20px 0;
+  }
+  @media(max-width:768px){.hero-stats{display:none;}}
+  .hero-stats div{text-align:right;}
+  .hero-stats .num{font-family:'Teko',sans-serif;font-size:38px;color:#fff;}
+  .hero-stats .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+
+  /* ---------- marquee ---------- */
+  .marquee{
+    background:var(--orange);color:#161616;overflow:hidden;white-space:nowrap;
+    border-top:1px solid #00000022;border-bottom:1px solid #00000022;
+  }
+  .marquee-track{display:inline-flex;animation:scroll 26s linear infinite;padding:12px 0;}
+  .marquee-track span{
+    font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.08em;
+    text-transform:uppercase;padding:0 28px;display:inline-flex;align-items:center;gap:28px;
+  }
+  @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+  /* ---------- section heads ---------- */
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px;flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(36px,5vw,56px);}
+  .section-head p{color:var(--muted);max-width:380px;font-size:14px;}
+
+  /* ---------- services / pricing ---------- */
+  .filter-row{display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap;align-items:center;}
+  .filter-row label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  select{
+    background:var(--surface);border:1px solid var(--line);color:var(--text);
+    padding:12px 14px;font-size:14px;border-radius:var(--radius);min-width:220px;
+  }
+  select:focus, input:focus, textarea:focus{outline:2px solid var(--orange);outline-offset:1px;}
+
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:900px){.price-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.price-grid{grid-template-columns:1fr;}}
+  .price-card{
+    background:var(--surface);padding:32px 26px;transition:background .2s;
+  }
+  .price-card:hover{background:var(--surface-2);}
+  .price-card .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;color:var(--orange);text-transform:uppercase;}
+  .price-card h3{font-size:28px;margin:10px 0 8px;}
+  .price-card .price{font-family:'Teko',sans-serif;font-size:40px;color:#fff;margin-bottom:12px;}
+  .price-card .price small{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);text-transform:none;font-weight:400;}
+  .price-card ul{margin:16px 0 22px;}
+  .price-card li{font-size:13px;color:var(--steel);padding:5px 0;border-top:1px dashed var(--line);}
+  .price-card li:first-child{border-top:none;}
+  .price-card a{font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:6px;}
+  .note{font-size:12px;color:var(--muted);margin-top:20px;}
+
+  /* ---------- gallery / instagram ---------- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+  @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+  .gallery-item{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--surface);}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .gallery-item:hover img{transform:scale(1.08);}
+  .gallery-item .overlay{
+    position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.75));
+    display:flex;align-items:flex-end;padding:14px;opacity:0;transition:opacity .25s;
+  }
+  .gallery-item:hover .overlay{opacity:1;}
+  .gallery-item .overlay span{font-size:12px;font-weight:600;color:#fff;}
+
+  .ig-cta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:28px;padding:22px 26px;background:var(--surface);border:1px solid var(--line);}
+  .ig-cta p{font-size:13px;color:var(--muted);}
+  .ig-handle{font-weight:700;color:var(--text);}
+
+  /* ---------- reviews ---------- */
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:900px){.review-grid{grid-template-columns:1fr;}}
+  .review-card{background:var(--surface);padding:28px;}
+  .stars{color:var(--orange);font-size:15px;letter-spacing:2px;margin-bottom:14px;}
+  .review-card p{font-size:14px;color:var(--steel);margin-bottom:18px;}
+  .reviewer{display:flex;align-items:center;gap:12px;}
+  .avatar{width:36px;height:36px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-size:18px;color:var(--orange);border:1px solid var(--line);}
+  .reviewer .name{font-size:13px;font-weight:600;}
+  .reviewer .via{font-size:11px;color:var(--muted);}
+
+  /* ---------- booking ---------- */
+  .booking{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  @media(max-width:900px){.booking-grid{grid-template-columns:1fr;gap:40px;}}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  @media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+  .field label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  .field input, .field select, .field textarea{
+    background:var(--surface);border:1px solid var(--line);color:var(--text);padding:13px 14px;font-size:14px;border-radius:var(--radius);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .booking-note{font-size:12px;color:var(--muted);margin-top:14px;}
+
+  .booking-side h3{font-size:30px;margin-bottom:10px;}
+  .booking-side p{color:var(--muted);font-size:14px;margin-bottom:26px;}
+  .step-list li{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);}
+  .step-list li:first-child{border-top:none;}
+  .step-num{font-family:'Teko',sans-serif;font-size:30px;color:var(--orange);min-width:38px;}
+  .step-list h4{font-size:16px;font-family:'Inter',sans-serif;text-transform:none;font-weight:700;margin-bottom:2px;}
+  .step-list p{font-size:13px;color:var(--muted);margin-bottom:0;}
+
+  /* ---------- location ---------- */
+  .location-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:900px){.location-grid{grid-template-columns:1fr;}}
+  .map-embed iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(20%) contrast(1.1) invert(0.92) hue-rotate(180deg);}
+  .location-info{background:var(--surface);padding:40px;}
+  .location-info h3{font-size:30px;margin-bottom:20px;}
+  .info-line{display:flex;gap:14px;padding:14px 0;border-top:1px dashed var(--line);}
+  .info-line:first-of-type{border-top:none;}
+  .info-line .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);min-width:90px;}
+  .info-line .v{font-size:14px;color:var(--steel);}
+
+  /* ---------- footer ---------- */
+  footer{padding:60px 0 30px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px;margin-bottom:40px;}
+  .footer-grid h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+  .footer-grid a{display:block;font-size:14px;color:var(--steel);padding:4px 0;}
+  .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);padding-top:24px;border-top:1px solid var(--line);}
+
+  /* ---------- floating whatsapp ---------- */
+  .float-wa{
+    position:fixed;bottom:22px;right:22px;z-index:300;
+    background:var(--whatsapp);width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  }
+  .float-wa svg{width:28px;height:28px;}
+
+  /* build note banner */
+  .build-note{background:#2a1c10;border:1px solid #5a3a1a;color:#ffc79a;font-size:12.5px;padding:14px 24px;text-align:center;}
+  .build-note b{color:#ffdcb8;}
 </style>
 </head>
 <body>
+
+<div class="build-note">
+  <b>Setup needed:</b> Replace WhatsApp number, Google Maps address, Instagram photos/reel video, and pricing marked "sample" before publishing — see comments in the code.
+</div>
+
+<!-- ========== HEADER ========== -->
 <header>
-<h1>The Karol Bagh</h1>
-<nav>
-<a href="#services">Services</a>
-<a href="#gallery">Gallery</a>
-<a href="#pricing">Pricing</a>
-<a href="#contact">Contact</a>
-</nav>
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <span class="logo-main">The Karol Bagh</span>
+      <span class="logo-sub">Mohali · Auto Studio</span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#booking">Book Now</a>
+      <a href="#location">Location</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services" target="_blank" rel="noopener">
+      WhatsApp Us
+    </a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
 </header>
-<section class="hero">
-<h2>Luxury Car Customization Studio</h2>
-<p>Transforming Cars into Masterpieces</p>
-<a href="https://wa.me/919891333289" class="btn">Book on WhatsApp</a>
-</section>
-<section id="services">
-<h2>Our Premium Services</h2>
-<div class="services">
-<div class="card"><h3>PPF Protection</h3><p>Top-grade paint protection film.</p></div>
-<div class="card"><h3>Ceramic Coating</h3><p>Mirror shine & durability.</p></div>
-<div class="card"><h3>Interior Customization</h3><p>Luxury seat covers & detailing.</p></div>
-<div class="card"><h3>Audio Systems</h3><p>Premium sound upgrades.</p></div>
-<div class="card"><h3>Alloy Wheels</h3><p>Stylish performance upgrades.</p></div>
-<div class="card"><h3>Full Car Modification</h3><p>Base to top model conversion.</p></div>
-</div>
-</section>
-<section id="gallery">
-<h2>Our Work</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-<img src="https://images.unsplash.com/photo-1493238792000-8113da705763">
-<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
-<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a">
-</div>
-</section>
-<section id="pricing">
-<h2>Pricing Packages</h2>
-<div class="pricing">
-<div class="card">
-<h3>Basic</h3>
-<p>₹4,999</p>
-<p>Interior Cleaning + Polish</p>
-</div>
-<div class="card">
-<h3>Standard</h3>
-<p>₹14,999</p>
-<p>Ceramic Coating + Detailing</p>
-</div>
-<div class="card">
-<h3>Premium</h3>
-<p>₹49,999+</p>
-<p>Full Modification + Custom Work</p>
-</div>
-</div>
-</section>
-<section id="contact">
-<h2>Visit Us</h2>
-<p>📍 Mohali, Punjab</p>
-<p>📞 +91 9891333289</p>
-<iframe src="https://www.google.com/maps?q=The%20Karol%20Bagh%20Mohali&output=embed"></iframe>
 
-Chat on WhatsApp
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <!--
+    VIDEO BACKGROUND: export any Instagram Reel you own as .mp4 (Reel settings → Save video),
+    place it in the same folder as this file, and set the src below.
+    Until then, a static garage-style image is shown as a fallback.
+  -->
+  <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop">
+    <source src="your-reel-video.mp4" type="video/mp4">
+  </video>
 
+  <div class="hero-content">
+    <span class="hero-tag">Mohali · Car Accessories &amp; Detailing</span>
+    <h1>Built for the<br><span>Road Ahead.</span></h1>
+    <p>Detailing, PPF, ceramic coating, wraps &amp; genuine accessories for every make and model — trusted craftsmanship, now serving Mohali &amp; Tricity.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-whatsapp" href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20book%20a%20service" target="_blank" rel="noopener">
+        Chat on WhatsApp
+      </a>
+      <a class="btn btn-primary" href="#booking">Book an Appointment</a>
+      <a class="btn btn-outline" href="#services">View Services &amp; Pricing</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div><div class="num">500+</div><div class="lbl">Cars Detailed</div></div>
+    <div><div class="num">4.8★</div><div class="lbl">Google Rating</div></div>
+    <div><div class="num">7</div><div class="lbl">Days Open</div></div>
+  </div>
 </section>
 
-💬
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>✦ Ceramic Coating</span><span>✦ PPF Protection</span><span>✦ Ceramic Coating</span><span>✦ Car Wraps</span><span>✦ Interior Detailing</span><span>✦ Genuine Accessories</span><span>✦ Alloy Wheels</span><span>✦ Sound Systems</span>
+    <span>✦ Ceramic Coating</span><span>✦ PPF Protection</span><span>✦ Ceramic Coating</span><span>✦ Car Wraps</span><span>✦ Interior Detailing</span><span>✦ Genuine Accessories</span><span>✦ Alloy Wheels</span><span>✦ Sound Systems</span>
+  </div>
+</div>
 
+<!-- ========== SERVICES / PRICING ========== -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Services &amp; Pricing</div>
+        <h2>Pick your car,<br>see your package.</h2>
+      </div>
+      <p>Sample starting prices below — filter by your car to get a tailored quote instantly on WhatsApp.</p>
+    </div>
+
+    <div class="filter-row">
+      <label for="carSelect">Your Car</label>
+      <select id="carSelect">
+        <option value="">Select brand &amp; model</option>
+        <optgroup label="Maruti Suzuki">
+          <option>Swift</option><option>Baleno</option><option>Brezza</option><option>WagonR</option><option>Ertiga</option>
+        </optgroup>
+        <optgroup label="Hyundai">
+          <option>Creta</option><option>Venue</option><option>i20</option><option>Verna</option>
+        </optgroup>
+        <optgroup label="Tata">
+          <option>Nexon</option><option>Punch</option><option>Harrier</option><option>Safari</option>
+        </optgroup>
+        <optgroup label="Mahindra">
+          <option>Thar</option><option>XUV700</option><option>Scorpio-N</option>
+        </optgroup>
+        <optgroup label="Honda">
+          <option>City</option><option>Amaze</option><option>Elevate</option>
+        </optgroup>
+        <optgroup label="Toyota">
+          <option>Innova Crysta</option><option>Fortuner</option><option>Glanza</option>
+        </optgroup>
+        <optgroup label="Kia / Skoda / VW / Renault">
+          <option>Kia Seltos</option><option>Skoda Slavia</option><option>VW Taigun</option><option>Renault Kwid</option>
+        </optgroup>
+        <optgroup label="Premium">
+          <option>BMW</option><option>Mercedes-Benz</option><option>Audi</option>
+        </optgroup>
+        <option value="Other">Other / Not Listed</option>
+      </select>
+
+      <label for="serviceSelect">Service</label>
+      <select id="serviceSelect">
+        <option value="">Select a service</option>
+        <option>Car Wash &amp; Interior Vacuum</option>
+        <option>Premium Detailing</option>
+        <option>Ceramic Coating</option>
+        <option>Paint Protection Film (PPF)</option>
+        <option>Car Wrap</option>
+        <option>Accessories Installation</option>
+        <option>Sound System Upgrade</option>
+        <option>Alloy Wheels</option>
+      </select>
+
+      <button class="btn btn-whatsapp" onclick="quoteOnWhatsApp()">Get Quote on WhatsApp</button>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <span class="tag">Sample · Essentials</span>
+        <h3>Wash &amp; Shine</h3>
+        <div class="price">₹499 <small>onwards</small></div>
+        <ul>
+          <li>Foam wash + interior vacuum</li>
+          <li>Tyre &amp; dashboard polish</li>
+          <li>Window &amp; mirror clean</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20book%20Wash%20%26%20Shine" target="_blank" rel="noopener">Book This →</a>
+      </div>
+      <div class="price-card">
+        <span class="tag">Sample · Most Booked</span>
+        <h3>Premium Detailing</h3>
+        <div class="price">₹2,999 <small>onwards</small></div>
+        <ul>
+          <li>Clay bar + machine polish</li>
+          <li>Deep interior shampoo</li>
+          <li>Engine bay cleaning</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20book%20Premium%20Detailing" target="_blank" rel="noopener">Book This →</a>
+      </div>
+      <div class="price-card">
+        <span class="tag">Sample · Protection</span>
+        <h3>Ceramic Coating</h3>
+        <div class="price">₹8,999 <small>onwards</small></div>
+        <ul>
+          <li>9H hydrophobic ceramic layer</li>
+          <li>2–5 year durability options</li>
+          <li>Swirl &amp; UV resistance</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20a%20Ceramic%20Coating%20quote" target="_blank" rel="noopener">Book This →</a>
+      </div>
+      <div class="price-card">
+        <span class="tag">Sample · Full Protection</span>
+        <h3>PPF Package</h3>
+        <div class="price">₹35,000 <small>onwards</small></div>
+        <ul>
+          <li>Self-healing paint film</li>
+          <li>Front / partial / full body</li>
+          <li>Stone-chip &amp; scratch guard</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20a%20PPF%20quote" target="_blank" rel="noopener">Book This →</a>
+      </div>
+      <div class="price-card">
+        <span class="tag">Sample · Style</span>
+        <h3>Car Wrap</h3>
+        <div class="price">₹18,000 <small>onwards</small></div>
+        <ul>
+          <li>Matte, gloss &amp; chrome finishes</li>
+          <li>Full or partial wrap</li>
+          <li>Custom colour matching</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20a%20Car%20Wrap%20quote" target="_blank" rel="noopener">Book This →</a>
+      </div>
+      <div class="price-card">
+        <span class="tag">Sample · Accessories</span>
+        <h3>Accessories Fit-Out</h3>
+        <div class="price">₹999 <small>onwards</small></div>
+        <ul>
+          <li>Seat covers, mats &amp; organisers</li>
+          <li>Lighting &amp; sound upgrades</li>
+          <li>Alloys &amp; body kits</li>
+        </ul>
+        <a href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20accessories%20fitted" target="_blank" rel="noopener">Book This →</a>
+      </div>
+    </div>
+    <p class="note">* Prices are illustrative samples — replace with your actual price list. Final quote depends on car size, condition &amp; product used.</p>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- ========== GALLERY / INSTAGRAM ========== -->
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">From Our Instagram</div>
+        <h2>Real cars,<br>real results.</h2>
+      </div>
+      <p>A snapshot of recent work. Follow along for daily transformations and reels.</p>
+    </div>
+
+    <!--
+      LIVE AUTO-SYNC OPTION:
+      To make this grid pull automatically from @thekarolbaghmohali with zero coding,
+      sign up (free tier available) at lightwidget.com or elfsight.com, connect the
+      Instagram account, and paste the generated <iframe> here in place of the grid below.
+      Example:
+      <iframe src="https://cdn.lightwidget.com/widgets/XXXXXXXX.html" scrolling="no" style="width:100%;border:0;overflow:hidden;"></iframe>
+      Until then, replace the placeholder images below with photos saved from your posts.
+    -->
+    <div class="gallery-grid" id="igGrid">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600&auto=format&fit=crop" alt="Detailed car exterior"><div class="overlay"><span>Ceramic Coating — Swift</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=600&auto=format&fit=crop" alt="Interior detailing"><div class="overlay"><span>Interior Detail — Creta</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=600&auto=format&fit=crop" alt="Car wrap"><div class="overlay"><span>Matte Wrap — Thar</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=600&auto=format&fit=crop" alt="Alloy wheel detail"><div class="overlay"><span>Alloy Refinish</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=600&auto=format&fit=crop" alt="Car polish"><div class="overlay"><span>Paint Correction</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=600&auto=format&fit=crop" alt="Car wash foam"><div class="overlay"><span>Foam Wash</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=600&auto=format&fit=crop" alt="PPF install"><div class="overlay"><span>PPF — Full Body</span></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=600&auto=format&fit=crop" alt="Car accessories"><div class="overlay"><span>Accessories Fit-Out</span></div></div>
+    </div>
+
+    <div class="ig-cta">
+      <p>See it all on Instagram — <span class="ig-handle">@thekarolbaghmohali</span></p>
+      <a class="btn btn-outline" href="https://www.instagram.com/thekarolbaghmohali" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section class="section" id="reviews" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Google Reviews</div>
+        <h2>What Mohali<br>is saying.</h2>
+      </div>
+      <p>
+        <!-- LIVE AUTO-SYNC OPTION: for real, auto-updating Google reviews, connect your
+        Google Business Profile via a widget service (e.g. Elfsight "Google Reviews" widget
+        or EmbedSocial) and paste the provided embed code in place of the cards below. -->
+        Sample reviews shown — connect your Google Business Profile to auto-sync live reviews.
+      </p>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Got my Creta ceramic coated here — finish is glassy and the team explained every step clearly."</p>
+        <div class="reviewer"><div class="avatar">R</div><div><div class="name">Rohit S.</div><div class="via">Google Review</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Booked accessories fitting on WhatsApp, was done same day. Very smooth experience overall."</p>
+        <div class="reviewer"><div class="avatar">P</div><div><div class="name">Preeti K.</div><div class="via">Google Review</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"PPF work on my Thar looks factory-fresh months later. Would recommend to anyone in Tricity."</p>
+        <div class="reviewer"><div class="avatar">A</div><div><div class="name">Aman D.</div><div class="via">Google Review</div></div></div>
+      </div>
+    </div>
+
+    <div class="ig-cta">
+      <p>Read more verified reviews on Google</p>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/the+karol+bagh+mohali" target="_blank" rel="noopener">View on Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BOOKING ========== -->
+<section class="section booking" id="booking">
+  <div class="wrap booking-grid">
+    <div>
+      <div class="eyebrow">Book an Appointment</div>
+      <h2 style="margin:14px 0 24px;font-size:clamp(32px,4.5vw,46px);">Raise a query or<br>reserve your slot.</h2>
+
+      <form id="bookingForm" onsubmit="return sendBooking(event)">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" required placeholder="+91 9XXXXXXXXX">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="carModel">Car</label>
+            <select id="carModel" required>
+              <option value="">Select your car</option>
+              <option>Maruti Suzuki Swift</option><option>Maruti Suzuki Baleno</option><option>Hyundai Creta</option>
+              <option>Hyundai i20</option><option>Tata Nexon</option><option>Tata Punch</option><option>Mahindra Thar</option>
+              <option>Mahindra XUV700</option><option>Honda City</option><option>Toyota Innova Crysta</option>
+              <option>Kia Seltos</option><option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="serviceType">Service Needed</label>
+            <select id="serviceType" required>
+              <option value="">Select a service</option>
+              <option>Car Wash &amp; Interior Vacuum</option><option>Premium Detailing</option>
+              <option>Ceramic Coating</option><option>Paint Protection Film (PPF)</option>
+              <option>Car Wrap</option><option>Accessories Installation</option>
+              <option>Sound System Upgrade</option><option>Alloy Wheels</option><option>General Query</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="date">Preferred Date</label>
+            <input id="date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="time">Preferred Time</label>
+            <input id="time" type="time" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Message / Query</label>
+          <textarea id="message" placeholder="Tell us anything specific — condition, colour, budget, etc."></textarea>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;">
+          <button type="submit" class="btn btn-whatsapp">Send via WhatsApp</button>
+          <button type="button" class="btn btn-outline" onclick="sendEmail()">Send via Email</button>
+        </div>
+        <p class="booking-note">
+          This form opens WhatsApp with your details pre-filled (no backend required), or opens your email app.
+          For automatic confirmation emails and a database of bookings, this form can be connected to a backend
+          (e.g. Google Sheets, Formspree, or a small server) — just ask and it can be added.
+        </p>
+      </form>
+    </div>
+
+    <div class="booking-side">
+      <h3>How booking works</h3>
+      <p>No back-and-forth needed — three steps and you're on the schedule.</p>
+      <ul class="step-list">
+        <li>
+          <div class="step-num">01</div>
+          <div><h4>Tell us your car &amp; service</h4><p>Pick your model and what you need above, or just message us directly.</p></div>
+        </li>
+        <li>
+          <div class="step-num">02</div>
+          <div><h4>Get a confirmed slot</h4><p>Our team replies on WhatsApp within business hours with timing &amp; quote.</p></div>
+        </li>
+        <li>
+          <div class="step-num">03</div>
+          <div><h4>Drive in, drive out shining</h4><p>Drop your car at our Mohali studio and track progress via WhatsApp.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LOCATION ========== -->
+<section class="section" id="location">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Find Us</div>
+        <h2>Visit the studio<br>in Mohali.</h2>
+      </div>
+    </div>
+
+    <div class="location-grid">
+      <div class="map-embed">
+        <!--
+          Replace the address in the src URL below with your exact shop address
+          (no API key required for this basic embed — just edit the query text after "q=").
+        -->
+        <iframe
+          src="https://maps.google.com/maps?q=Mohali%2C%20Punjab%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="The Karol Bagh Mohali location map">
+        </iframe>
+      </div>
+      <div class="location-info">
+        <h3>The Karol Bagh — Mohali</h3>
+        <div class="info-line"><div class="k">Address</div><div class="v">[Add exact shop address], Mohali, Punjab, India</div></div>
+        <div class="info-line"><div class="k">Phone</div><div class="v">+91 9XXXXXXXXX</div></div>
+        <div class="info-line"><div class="k">WhatsApp</div><div class="v">+91 9XXXXXXXXX</div></div>
+        <div class="info-line"><div class="k">Hours</div><div class="v">Mon–Sun · 10:00 AM – 8:00 PM</div></div>
+        <div class="info-line"><div class="k">Instagram</div><div class="v">@thekarolbaghmohali</div></div>
+        <a class="btn btn-primary" style="margin-top:24px;" href="https://www.google.com/maps/search/?api=1&query=Mohali+Punjab" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
 <footer>
-<p>© 2026 The Karol Bagh Mohali</p>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="logo-main" style="font-size:22px;">The Karol Bagh</span>
+        <p style="color:var(--muted);font-size:13px;margin-top:10px;max-width:260px;">Car accessories &amp; detailing studio in Mohali. Genuine products, careful hands.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#booking">Book Now</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://wa.me/919999999999" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:info@thekarolbaghmohali.com">Email</a>
+        <a href="https://www.instagram.com/thekarolbaghmohali" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Karol Bagh, Mohali. All rights reserved.</span>
+      <span>Built with care for cars.</span>
+    </div>
+  </div>
 </footer>
+
+<!-- Floating WhatsApp button -->
+<a class="float-wa" href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20to%20know%20more" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#08210f"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.912 6.482L4 29l7.708-1.87A11.94 11.94 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm6.965 16.87c-.29.816-1.438 1.5-2.362 1.696-.633.135-1.454.24-4.232-.908-3.55-1.466-5.833-5.058-6.01-5.293-.176-.235-1.436-1.91-1.436-3.646s.912-2.59 1.234-2.943c.323-.353.705-.44.94-.44.235 0 .47.002.675.012.216.01.507-.082.793.605.29.7.984 2.42 1.07 2.596.088.176.147.382.03.617-.117.235-.176.382-.352.588-.176.206-.37.46-.528.617-.176.176-.36.367-.155.72.206.353.914 1.51 1.963 2.446 1.35 1.203 2.487 1.575 2.84 1.75.353.176.558.147.764-.088.206-.235.881-1.03 1.117-1.383.235-.353.47-.294.793-.176.323.117 2.04.962 2.39 1.137.353.176.588.264.675.412.088.147.088.852-.203 1.668z"/></svg>
+</a>
+
+<script>
+  function buildMessage(){
+    var name = document.getElementById('name')?.value || '';
+    var phone = document.getElementById('phone')?.value || '';
+    var car = document.getElementById('carModel')?.value || '';
+    var service = document.getElementById('serviceType')?.value || '';
+    var date = document.getElementById('date')?.value || '';
+    var time = document.getElementById('time')?.value || '';
+    var message = document.getElementById('message')?.value || '';
+
+    var text = "New Booking Request\n";
+    text += "Name: " + name + "\n";
+    text += "Phone: " + phone + "\n";
+    text += "Car: " + car + "\n";
+    text += "Service: " + service + "\n";
+    text += "Preferred Date: " + date + "\n";
+    text += "Preferred Time: " + time + "\n";
+    if(message) text += "Message: " + message + "\n";
+    return text;
+  }
+
+  function sendBooking(e){
+    e.preventDefault();
+    var text = encodeURIComponent(buildMessage());
+    window.open("https://wa.me/919999999999?text=" + text, "_blank");
+    return false;
+  }
+
+  function sendEmail(){
+    var text = buildMessage();
+    var subject = encodeURIComponent("New Booking Request — The Karol Bagh Mohali");
+    var body = encodeURIComponent(text);
+    window.location.href = "mailto:info@thekarolbaghmohali.com?subject=" + subject + "&body=" + body;
+  }
+
+  function quoteOnWhatsApp(){
+    var car = document.getElementById('carSelect').value;
+    var service = document.getElementById('serviceSelect').value;
+    var text = "Hi, I'd like a quote.\nCar: " + (car || "Not specified") + "\nService: " + (service || "Not specified");
+    window.open("https://wa.me/919999999999?text=" + encodeURIComponent(text), "_blank");
+  }
+</script>
+
 </body>
 </html>
